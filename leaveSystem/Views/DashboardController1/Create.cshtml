@@ -1,0 +1,167 @@
+﻿@model leaveSystem.Models.DTO.Leave
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+
+    <style>
+
+        form {
+            border: 3px solid #f1f1f1;
+            width: 60%;
+            margin: auto;
+            margin-top: 0%;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #aa048b;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        .msg {
+            padding: 0px;
+        }
+
+        .hidden-div {
+            display: none;
+        }
+
+        .err {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">LEAVE APPLICATION FORM</h1>
+
+    </div>
+
+
+    <hr />
+
+    <form asp-action="Create" method="post">
+        <div class="container">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="hidden-div">
+
+                <input asp-for="UserId" readonly="readonly" class="form-control" value="@ViewBag.UserId" required="" />
+
+            </div>
+
+            <div class="form-group">
+                <span class="fa fa-user" aria-hidden="true"></span>
+                <input asp-for="First_Name" class="form-control" placeholder="First Name" required="Enter your name" />
+
+            </div>
+            <div class="form-group">
+                <span class="fa fa-user" aria-hidden="true"></span>
+                <input asp-for="Last_Name" class="form-control" placeholder="Surname" required="Enter your surname" />
+
+            </div>
+            <div class="form-group">
+                <span class="fa fa-file" aria-hidden="true"></span>
+                <input asp-for="Leave_Reason" class="form-control" class="select-only" placeholder="Reason for leave request" required="Enter your reason form leave" />
+
+            </div>
+            <div class="form-group">
+                <span class="fa fa-calendar" aria-hidden="true"></span>
+                <input asp-for="Start_Date" id="datepicker" readonly="readonly" class="select-only" placeholder="Starting day of leave" required="Enter start date" />
+
+            </div>
+            <div class="form-group">
+                <span class="fa fa-calendar" aria-hidden="true"></span>
+                <input asp-for="End_Date" id="datepicker2" readonly="readonly" class="select-only" placeholder="Ending day of leave" required="Enter end date" />
+
+            </div>
+            <div class="hidden-div">
+
+                <input asp-for="status" readonly="readonly" class="form-control" placeholder="status" value="Pending" required="" />
+
+            </div>
+            <div class="text-center">
+                <div class="form-group">
+                    <input type="submit" value="Submit Form" class="btn btn-primary" />
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div>
+            <a asp-action="Display">Back to List</a>
+        </div>
+    </form>
+
+</body>
+</html>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+@section Scripts {
+    <script src="~/Scripts/jquery-ui-1.13.2.min.js"></script>
+    <script src="~/content/themes/base/jquery-ui-1.13.2.min.js"></script>
+        datePicker.setAttribute("min", currentDate);
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: "yy/mm/dd",
+            changeMonth: true,
+            changeYear: true,
+            minDate: -0,
+            maxDate: "2y",
+             showOn: "both",
+                buttonText: "Select date"
+
+                        
+                    
+
+        });
+
+        $("#datepicker2").datepicker({
+            dateFormat: "yy/mm/dd",
+            changeMonth: true,
+            changeYear: true,
+            minDate: -0,
+            maxDate: "2y",
+                showOn: "both",
+                buttonText: "Select date"
+
+                         
+
+        });
+    });
+</script>
+}

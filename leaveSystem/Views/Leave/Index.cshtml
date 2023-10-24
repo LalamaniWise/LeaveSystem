@@ -1,0 +1,128 @@
+﻿@model IEnumerable<leaveSystem.Models.DTO.Leave>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-center">
+    <h1 class="display-4">Leave Requests Applications</h1>
+   
+</div>
+
+
+<br/>
+
+  <!-- Icon Cards-->
+<div class="text-center">
+                <div class="row">
+        <div class="col-md-4 market-update-gd">
+                        <div class="card text-white bg-primary o-hidden h-100">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fas fa-fw fa-comments"></i>
+                                </div>
+                
+                <div class="mr-5">Pending Leave Requests: @ViewBag.PendingItemCount</div>
+                            </div>
+                            
+                                <span class="float-right">
+                                    <i class="fas fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+        <div class="col-md-4 market-update-gd">
+                        <div class="card text-white bg-danger o-hidden h-100">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+                                    <i class="fas fa-fw fa-list"></i>
+                                </div>
+                <div> <label style="font-size:larger">Rejected Leave Requests: @ViewBag.rejectedItemCount  </label></div>
+                            </div>
+                            
+                                <span class="float-right">
+                                    <i class="fas fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+        <div class="col-md-4 market-update-gd">
+                        <div class="card text-white bg-success o-hidden h-100">
+                            <div class="card-body">
+                                <div class="card-body-icon">
+
+                                </div>
+                <div class="mr-5">Approved Leave Requests: @ViewBag.ApprovedItemCount</div>
+                            </div>
+                            
+                                <span class="float-right">
+                                    <i class="fas fa-angle-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+    </div>
+    </div>
+
+<br/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leave_Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leave_Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Approve or Reject</a> 
+                    
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

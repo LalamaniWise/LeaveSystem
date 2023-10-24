@@ -1,0 +1,92 @@
+﻿@model leaveSystem.Models.DTO.RegistrationModel
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>LeaveApp</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+     <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/content/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/content/css/font-awesome.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+    <!-- //online-fonts -->
+</head>
+
+<body>
+    <!--header-->
+    <div class="header-w3l">
+        <h1>Leave Management System</h1>
+    </div>
+    <!--//header-->
+    <div class="main-content-agile">
+        <div class="sub-main-w3">
+            <h2>Register</h2>
+            <form action="#" method="post">
+                <div class="pom-agile">
+                    <span class="fa fa-user" aria-hidden="true"></span>
+                    <input placeholder="Name" name="FirstName" class="user" type="text" required="">
+                </div>
+
+                <div class="pom-agile">
+                    <span class="fa fa-user" aria-hidden="true"></span>
+                    <input placeholder="Surname" name="LastName" class="user" type="text" required="">
+                </div>
+
+                <div class="pom-agile">
+                    <span class="fa fa-envelope" aria-hidden="true"></span>
+                    <input placeholder="Email" name="Email" class="email" type="email" required="">
+                </div>
+
+                <div class="pom-agile">
+                    <span class="fa fa-user" aria-hidden="true"></span>
+                    <input placeholder="Username" name="Username" class="user" type="text" required="">
+                </div>
+                <div class="pom-agile">
+                    <span class="fa fa-key" aria-hidden="true"></span>
+                    <input placeholder="Password" name="Password" class="pass" type="password" required="">
+                </div>
+
+                <div class="pom-agile">
+                    <span class="fa fa-key" aria-hidden="true"></span>
+                    <input placeholder="Confirm Password" name="PasswordConfirm" class="pass" type="password" required="">
+                </div>
+
+                @if (TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        <span class="text-info">@TempData["msg"]</span>
+                    </div>
+                }
+                <a class="btn btn-primary" href="/UserAuthentication/Login">already have an account? Login</a>
+                <div class="right-w3l">
+                    <input type="submit" value="Registration">
+                </div>
+               
+            </form>
+        </div>
+    </div>
+    <!--//main-->
+   
+  
+</body>
+
+</html>
+

@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string username = User.Identity.Name;
+}
+<style>
+
+        form {
+            border: 3px solid #f1f1f1;
+            width: 60%;
+            margin: auto;
+            margin-top: 50%;
+        }
+
+    .container {
+        padding: 16px;
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #aa048b;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+        </style>
+
+  
+
+
+<div class="text-center">
+    <div>
+        <h1 class="display-4">@username</h1>
+        
+    </div>
+    <h1 class="display-4">Welcome to Leave Management System</h1>
+    <br/>
+
+    <h1><span class="fa fa-user" aria-hidden="true"></span></h1>
+    <div class="container">
+                        @if (User.IsInRole("admin"))
+                        {
+                            
+                            <h2><a class="navbar-brand" asp-area="" asp-controller="Leave" asp-action="Index">View Dashboard</a></h2>
+                           
+                        }
+
+                    @if (User.IsInRole("user"))
+                    {
+                        
+                            <a class="navbar-brand" asp-area="" asp-controller="DashboardController1" asp-action="Display">View Dashboard</a>
+                       
+
+
+                    }
+                    </div>
+        
+
+  
+   
+
+</div>

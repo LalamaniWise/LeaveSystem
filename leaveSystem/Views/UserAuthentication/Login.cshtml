@@ -1,0 +1,87 @@
+﻿@model leaveSystem.Models.DTO.LoginModel
+@{
+    Layout = null;
+}
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Leave App</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/content/css/style.css" type="text/css" media="all" />
+    <link href="~/content/css/font-awesome.css" rel="stylesheet" />
+    <!-- Style-CSS -->
+    <link rel="~/content/stylesheet" href="css/font-awesome.css">
+    <link href="~/content/css/style.css" rel="stylesheet" />
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+    <!-- //online-fonts -->
+       
+    </head>
+    
+   
+
+    
+
+
+
+    <body>
+
+    <div class="header-w3l">
+        <h1>Leave Management System</h1>
+    </div>
+    <!--//header-->
+    <div class="main-content-agile">
+        <div class="sub-main-w3">
+            <h2>Login</h2>
+            <form action="#" method="post">
+                <div class="pom-agile">
+                    <span class="fa fa-user" aria-hidden="true"></span>
+                    <input placeholder="Username" name="Username" class="user" type="text" required="">
+                </div>
+                
+                <div class="pom-agile">
+                    <span class="fa fa-key" aria-hidden="true"></span>
+                    <input placeholder="Password" name="Password" class="pass" type="password" required="">
+                </div>
+
+                @if (TempData["msg"] != null)
+                {
+                    <div class="msg">@TempData["msg"]</div>
+                }
+
+                <div class="sub-w3l">
+                    
+                    <a href="/UserAuthentication/Registration">Not a user? Signup</a>
+                    <div class="clear"></div>
+                </div>
+                <div class="right-w3l">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--//main-->
+    <!--footer-->
+    
+   
+       
+  
+</body>
+
+</html>
